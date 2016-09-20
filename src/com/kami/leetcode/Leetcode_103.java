@@ -1,12 +1,13 @@
 package com.kami.leetcode;
 
-import static org.hamcrest.CoreMatchers.nullValue;
-
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
+
+import javax.tools.Tool;
 
 /**
  * Binary Tree Zigzag Level Order Traversal
@@ -66,6 +67,31 @@ public class Leetcode_103 {
 			isTop = isTop==true?false:true;
 		}
 		return result;
+	}
+	
+	public List<List<Integer>> zigzagLevelOrder2(TreeNode root) {
+		//this is a recursion method
+		List<List<Integer>> result = new ArrayList<>();
+		DFS_Travel(root, 0, result, true);
+		return result;
+	}
+	
+	private void DFS_Travel(TreeNode root, int depth, List<List<Integer>> result, boolean isLeft){
+		if (root == null) {
+			return;
+		}
+		if (depth > result.size()) {
+			result.add(new LinkedList<>());
+		}
+		List<Integer> temp = result.get(depth);
+		if (isLeft) {
+			temp.add(root.val);
+		}
+		else temp.add(0,root.val);
+		
+		
+		DFS_Travel(root.left, depth+1, result, !isLeft);
+		DFS_Travel(root.right, depth+1, result, !isLeft);
 	}
 	
 	public static void main(String[] args){
