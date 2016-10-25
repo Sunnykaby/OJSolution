@@ -31,7 +31,9 @@ public class Leetcode_341 {
 
 	public static void main(String[] args){
 		Leetcode_341 temp = new Leetcode_341();
-
+		char[] chars = "123123".toCharArray();
+		int a = chars[0];
+		System.out.println(chars[0]);
 	}
 }
 
