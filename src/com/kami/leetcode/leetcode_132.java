@@ -12,7 +12,7 @@ package com.kami.leetcode;
       int val;
       TreeNode left;
       TreeNode right;
-      TreeNode(int x) { val = x; }
+      TreeNode(int x) { val = x; left = null;right =null;}
   }
  
 public class leetcode_132 {
